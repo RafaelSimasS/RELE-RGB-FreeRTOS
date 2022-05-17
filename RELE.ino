@@ -1,6 +1,5 @@
 void vTaskRele(void * parametros){
 //  entradas.init();
-  variaveis_controladoras_t variaveis_controladoras;
   relecontrol.init();
   relecontrol.pinMode(0,OUTPUT); //RELE1
   relecontrol.pinMode(1,OUTPUT); //RELE2
@@ -12,6 +11,13 @@ void vTaskRele(void * parametros){
   relecontrol.pinMode(7,OUTPUT); // pode ser usado como entrada ou saida
   pinMode(CS_RS485, OUTPUT); // NÃO ESTAMOS USANDO, TESTANDO PARA VER SE SERÁ TRANSPARENTE PARA O SOFTWARE
   
+  
+  variaveis_controladoras_t variaveis_controladoras;
+  xQueueReceive(xQueue_dados, &variaveis_controladoras, portMAX_DELAY);
+  int receberParametro;
+  int receberCanal;
+  receberParametro = variaveis_controladoras.parametro;
+  receberCanal = variaveis_controladoras.canal
   while(1)
   {
     for( int rele = 0; rele <= 5; rele++ )
