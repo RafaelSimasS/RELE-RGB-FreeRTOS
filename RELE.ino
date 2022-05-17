@@ -17,7 +17,7 @@ void vTaskRele(void * parametros){
   int receberParametro;
   int receberCanal;
   receberParametro = variaveis_controladoras.parametro;
-  receberCanal = variaveis_controladoras.canal
+  receberCanal = variaveis_controladoras.canal;
   while(1)
   {
     for( int rele = 0; rele <= 5; rele++ )
